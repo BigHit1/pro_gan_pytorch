@@ -1,7 +1,11 @@
 """ script for training a ProGAN (Progressively grown gan model) """
 
 import argparse
+import os
 import sys
+
+sys.path.append('/home/wlchen/ssd_cache/pro_gan_pytorch')
+
 from pathlib import Path
 
 import torch
@@ -15,6 +19,7 @@ from pro_gan_pytorch.utils import str2bool, str2GANLoss
 # turn fast mode on
 cudnn.benchmark = True
 
+os.environ['CUDA_VISIBLE_DEVICES'] ='2'
 # define the device for the training script
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
